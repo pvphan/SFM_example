@@ -7,14 +7,15 @@
  *
  * Nghia Ho
  */
-#include <opencv2/features2d.hpp>
-#include <opencv2/highgui.hpp>
-#include <opencv2/opencv.hpp>
 #include <vector>
 #include <iostream>
 #include <map>
 #include <fstream>
 #include <cassert>
+
+#include <opencv2/features2d.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/opencv.hpp>
 
 #include <gtsam/geometry/Point2.h>
 #include <gtsam/inference/Symbol.h>
@@ -32,7 +33,7 @@ const int IMAGE_DOWNSAMPLE = 4; // downsample the image to speed up processing
 const double FOCAL_LENGTH = 4308 / IMAGE_DOWNSAMPLE; // focal length in pixels, after downsampling, guess from jpeg EXIF data
 const int MIN_LANDMARK_SEEN = 3; // minimum number of camera views a 3d point (landmark) has to be seen to be used
 
-const std::string IMAGE_DIR = "desk/";
+const std::string IMAGE_DIR = ((const std::string) getenv("HOME"))  + "/git/sfm_example/desk/";
 
 const std::vector<std::string> IMAGES = {
     "DSC02638.JPG",
